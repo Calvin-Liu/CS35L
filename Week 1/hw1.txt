@@ -1,0 +1,94 @@
+1.1)
+2)/ A S C I I <ENTER>
+3)/ I n s t r u c t i o n s <ENTER>
+4)/ H T M L <ENTER>
+5)/ h u n t <ENTER>
+6)$
+7)0 <RIGHT>
+8): 1 <ENTER>
+9)/ A S C I I <ENTER> I n s t r u c t i o n s <ENTER> / H T M L <ENTER> h u n
+t <ENTER> $ <ENTER> 0 <ENTER> : 1 <ENTER>
+10)same as 9)
+11) <esc> : w q
+
+1.2)
+2)1 6 G <ENTER> <esc> d d
+3)/ D E L E T E M E d d
+4)/ w i k i p e d i a <ENTER> n : 2 3 4 , 2 3 6 d <ENTER>
+5)/ < ! - - <ENTER> x x x x x x x <esc> : w q
+
+1.3)
+2)/ A s s i g  n m e n t 1 <ENTER> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW>
+<RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW>
+<RIGHTARROW> <RIGHTARROW> x i 3 5 <esc> / A s s i g n m e n t 1 <ENTER>
+<RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW>
+<RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> <RIGHTARROW> x i 3 5 <esc>
+3)/ U T F - 8 <ENTER> d w x x i U S - A S C I I
+4)/ < o l > <ENTER> o
+5)<esc> : w q <ENTER> d i f f SP - u SP e x e r 1 . h t m l SP e x e r 2 . h t
+m l SP > e x e r 2 . d i f f 
+
+1.4)
+The / < ! - - and multiple n's is just to find the diff comments and put them back
+
+3)/ < ! - - 3 y y 1 6 G p 0 x
+4)/ < ! - - n n y y 9 7 G p 0 x o
+/ < ! - - n n n 3 y y 2 3 8 G p x
+/ < ! - - n n n n n y y 2 7 6 G p x
+5): 2 9 2 , 3 3 1 d <ENTER>
+6)u
+7)2 9 2 G < ! - - 3 3 1 G - - >
+8): % s / < o l > / < O l > / g <ENTER>
+9) the old <ol> had - next to them and right under showed the +<Ol>. The huge
+comment on the bottom all had +'s next to it. Nothing else was shown to be
+different. 
+
+1.1e)
+2)<CTRL> s A S C I I
+3)<CTRL> s I n s t r u c t i o n s
+4)<CTRL> s H T M L <option for mac/alt> <LEFT>
+5)<CTRL> s h u n t <option for mac/alt> <LEFT>
+6)<CTRL> e
+7)<CTRL> a
+8)<esc> <
+
+1.2e)
+<CTRL> s < ! - - <CTRL> k <Backspc> <Backspc> <Backspc> <Backspc> 
+<CTRL> s < ! - - <CTRL> k <Backspc> <Backspc> <Backspc> <Backspc> 
+<CTRL> s < ! - - <CTRL> k <Backspc> <Backspc> <Backspc> <Backspc> <CTRL> k <CTRL> k
+<CTRL> k <CTRL> k
+<CTRL> s < ! - - <RIGHT> <RIGHT> <RIGHT> <Backspc> <Backspc> <Backspc>
+<Backspc> <Backspc> <Backspc> <Backspc>
+
+1.3e)
+2) <CTRL> s A s s i g n m e n t 1 <ENTER> <Backspc> 3 5
+<CTRL> s A s s i g n m e n t 1 <ENTER> <Backspc> 3 5
+3)<CTRL> s U T F - 8 <ENTER> <Backspc> <Backspc> <Backspc> <Backspc> <Backspc>
+U S - A S C I I
+4)<CTRL> s <ol> <ENTER> <ENTER>
+5)<CTRL> x <CTRL> s <CTRL> x <CTRL> c
+
+1.4e)
+1)c a t SP E M A C e x e r 2 . h t m l SP E M A C e x e r 2 . d i f f SP > E M AC e x e r 4 . h t m l <ENTER>
+2)e m a c s e x e r 4 . h t m l <ENTER>
+3) <CTRL> s <!-- <ENTER> <LEFT> <LEFT> <LEFT> <LEFT> <CTRL> <SPC> <DOWN>
+<LEFT> <esc> w <esc> < <CTRL> u 16 <CTRL> n <CTRL> y <ENTER>
+
+<CTRL> s <!-- (to get to next comment) (go to the beginning using arrow keys) <CTRL> <SPC> <DOWN> <LEFT>
+<esc> w < <CTRL> u 95 <CTRL> n <CTRL> y <ENTER>
+
+<CTRL> s <!-- (to get to next comment) (go to the beginning using arrow keys)
+<CTRL> <SPC> <DOWN> <DOWN> <DOWN> <LEFT> <esc> w <esc> < <CTRL> u 236 <CTRL> n
+<CTRL> y <ENTER>
+
+<CTRL> s <!-- (to get to next comment) (go to the beginning using arrow keys)
+<CTRL> <SPC> <esc> w <esc> < <CTRL> u 274 <CTRL> n (go to spot using arrow
+keys) <CTRL> y
+4)done above
+5)<CTRL> u 288 <CTRL> n <CTRL> <SPC> <CTRL> u 333 <CTRL> n <CTRL> w
+6)<CTRL> x u
+7)<CTRL> v to scroll down or <esc> v to scroll up, add the <!-- --> to the
+different parts at the bottom.
+8)<esc> x r e p l a c e - s t r i n g <ENTER> < o l > <ENTER> < O l >  <ENTER>
+9)d i f f SP - u SP e x e r 1 . h t m l SP e x e r 4 . h t m l SP > e x e r 4 . d i f f
+

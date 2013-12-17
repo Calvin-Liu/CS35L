@@ -1,0 +1,46 @@
+1) I looked at the man page of man and searched for the word "all" using the / command.
+
+2)I typed in wh and used the tab autocomplete to find out the command where is and used that to find where cp and wc is.
+
+3)echo $PATH
+find /usr/lib64/qt-3.3/bin -executable -name "?"
+find /usr/local/bin -executable -name "?"
+find /bin -executable -name "?"
+find /usr/bin -executable -name "?"
+find /usr/X11R6/bin -executable -name "?"
+find /opt/de;/srvadmin/bin -executable -name "?"
+find /u/cs/ugrad/calvinlbin -executable -name "?"
+find /usr/local/cs/bin -executable -name "?"
+
+4) I used man cron and then searched for the keyword daylight.
+
+5) cd /usr/bin/ then ll and find where cc points to.
+ 
+6) g means group, the - means take away and the s means the SUID permission.
+
+7) man find, look at the see also section, man the listed commands
+
+8) man find
+/modified
+n until you find the description of mtime
+
+9)run the command find -mtime -3
+
+10)whereis find
+find /bin/ -type l | wc -l
+find /usr/bin/ -type l | wc -l
+find /usr/share/man/man1/ -type l | wc -l
+find /usr/share/man/man1p/ -type l | wc -l
+
+11)man ls
+/author
+
+12) I cd into /usr/lib and then ls -la -t to list all the files and sort them in a modified time.
+
+13)I typed in wh and used the tab autocomplete to find out the commands that started with wh
+
+14)vim into a random file
+:help d
+:help w
+
+15)man locale

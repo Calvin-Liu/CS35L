@@ -1,0 +1,67 @@
+1) man -k <keyword>
+
+2)cp: /bin/cp /usr/share/man/man1/cp.1.gz /usr/share/man/man1p/cp.1p.gz
+wc: /usr/bin/wc /usr/share/man/man1/wc.1.gz /usr/share/man/man1p/wc.1p.gz
+
+3) X is a window display for people using the X window system. It lets you see
+graphic windows using linux. 
+w shows who is logged on to the current server and what they are doing
+[ is like test, it allows comparisons of two files.
+
+4) Jobs that are one hour or greater will run immediately if the job was
+within the skipped time interval. If the job is less than an hour than it is
+scheduled normally. If the time goes backwards then care is taken not to run
+the job twice.
+
+5) The gcc file or GNU C compiler is executed which has no program passed to it.
+
+6) It takes away the SUID permission for the group section.
+
+7)locate 
+
+8)find -mtime -3
+
+9).
+./Desktop
+./Desktop/$RECYCLE.BIN
+./Desktop/$RECYCLE.BIN/desktop.ini
+./Desktop/.lab1.txt.swp
+./Desktop/.exer1.html.swp
+./Desktop/CS35L
+./Desktop/CS35L/hw1.txt
+./Desktop/CS35L/lab1.txt
+./Desktop/CS35L/exer1.html
+./Desktop/CS35L/lab1.log
+./Desktop/CS35L/exer3.diff
+./Desktop/CS35L/exer2.html
+./Desktop/CS35L/exer3.html
+./Desktop/CS35L/exer2.diff
+./Desktop/CS35L/exer4.html
+./Desktop/CS35L/.exer4.html.swp
+./Desktop/CS35L/exer4.diff
+./Desktop/CS35L/assign1.html
+./My Documents
+./My Documents/$RECYCLE.BIN
+./My Documents/$RECYCLE.BIN/desktop.ini
+./.bash_history
+./.viminfo
+./.lesshst
+./.mozilla
+./.mozilla/extensions
+./.mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}
+./.bash_profile
+
+10)18+349+165 = 532
+
+11) Written by Richard M. Stallman and David MacKenzie.
+
+12) Nov 24 2009 libsqlite3.so.0.8.6
+
+13) whoami tell you your name, whatis tells you what the previous one does, and
+whereis will tell you the location of the command submitted
+
+14) dw stands for delete word
+
+15)Locale gets its information from the category defined by the LC_*
+environment variables.
+ 
