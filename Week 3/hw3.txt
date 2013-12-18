@@ -1,0 +1,30 @@
+Q3)It returns errors because some of the commands expect lines to be used as
+input/arguments. There is one line that reads 
+        for index in range(numlines):
+            sys.stdout.write(generator.chooseline())
+and that is a for loop, iterating from 0 to the number of lines -1 but since
+you have 0 lines, you are iterating -1 times. It is also suppose to generate a
+rnadom line chosen, but since there is are no lines, there is nothing to
+print. 
+
+  File "./randline.py", line 34, in chooseline
+    return random.choice(self.lines)
+Also does not behave the way it's supposed to because it is supposed to randomly
+select a number between 0 and the size of the lines which is 0 and returns the
+line corresponding to the randomly selected number but there is nothing to
+return. 
+
+Q4)
+   File "randline.py", line 65
+    except IOError as (errno, strerror):
+                      ^
+SyntaxError: invalid syntax
+
+The problem is that except IOError as (errno, strerror): is supposed to be
+changed to
+except IOError as err:
+
+The old line relies on the obscure fact that exceptions in Python 2 are
+iterable and that you can iterate over the parameters given to the exception
+by iterating over the exception itself.
+This of course breaks the "Explicit is better than implicit" rule of python

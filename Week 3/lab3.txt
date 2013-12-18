@@ -1,0 +1,18 @@
+5)
+  CC     ls.o
+  CCLD   dir
+  CCLD   vdir
+  CCLD   ls
+Once you make changes to the ls program, you have to recompile the modified
+file and then link everything together. The following commands shows that it
+is compiling the file with gcc and modifying the ls program. 
+
+Q1) It would not matter because the goto line was removed and there is another
+case statement above it that can waterfall through to the line below it.
+
+Q2)This patch would pose a problem to those that do not use the traditional
+three field time style. If you want something different then the specific
+style has to be specified and if it was a different language then it wouldn't
+work because it is set a specific locale. Another case would be if the file is
+a year old then it would display the year instead of the time.
+
