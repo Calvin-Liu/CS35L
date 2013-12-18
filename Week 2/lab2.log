@@ -1,0 +1,54 @@
+tr Exercises:
+1)Takes everything that is not in the range of 'A-Z' and 'a-z' and replaces it with the new line
+2)Takes everything that is not in the range of 'A-Z' and 'a-z' and replaces it with the new line, then it squeezes everything together.
+3)It first removes everything that is not in the range of 'A-Z' and 'a-z' and
+replaces it with a new line, then it squeezes them together and then sorts
+them in alphabetical order
+4)Does everything in 3) but it also eliminates the repeats
+5)Compares the html document that 4) made with the words document and line by
+line, compared them producing an output with lines unique to the first file
+passed in, lines unique to the second file passed in, and lines common to both
+files.
+6)Does what 5) does but suppresses lines unique to the second file and lines
+that appear in both files. Your showing lines unique to the first file.
+
+Line #s
+3)Replaces all english words with Hawiaan words
+4)Searches for all those with a <td> tag
+5)Changes all words from upper case to lower case
+6)Deletes all the <td> tags
+7)Erases all </td> tags
+8)Erases all the </u> tags
+9)Erases all the <u> tags
+10)Changes all commas to \n
+11)Replaces all ` with '
+12)Gets rid of all <br> tages
+13)Replaces all spaces with new lines to move them all to the left
+14)Squeezes all the new lines together
+15)Sorts everything in alphabetical order
+
+words is the english words
+tr -cs 'A-Za-z' '[\n*]' < assign2.html | tr '[:upper:]' '[:lower:]' | sort -u | comm -23 - words | wc -l
+39 words mispelled
+
+hwords is the hawaiian words
+tr -cs 'A-Za-z' '[\n*]' < assign2.html | tr '[:upper:]' '[:lower:]' | sort -u | comm -23 - hwords | wc -l
+405 words mispelled
+
+comm -12 test.txt htest.txt
+compares the english to the hawaiian words and shows the mispelled words common to both
+
+Words that were misspelled in both dictionaries are obvious -- stuff like www and random letters like u that
+appeared within html tags. A lot of english words turned up as misspelled words in the hawaiian run -- stuff
+like "export" and "homework." The english dictionary marked "halau" as misspelled.
+
+sameln
+-Create an array
+-Store the passed in argument into the variable dir
+-Store the passed in files into RESULT in alphabetical order
+-Create temporary counter variables
+-Add the first file into the array
+-Read in the files again, not comparing the first one
+-Check each file that is read in with the array
+-If it is there, make a hard link and remove the duplicate
+-If there is no duplicate then add it into the array
