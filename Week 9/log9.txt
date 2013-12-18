@@ -1,0 +1,46 @@
+You want to run
+od -An -f -N 4000000 < /dev/urandom | tr -s ' ' '\n' > random.txt
+
+Doing this will create a file with 4 million bytes of random numbers. od is 
+used to format the read in file and piping it to tr removes the white spaces 
+and creates new lines to put each number on their own line. 
+
+You also want to remove the first line which is an enmpty line
+Then you want to time each thread, and run a certain number of threads
+
+use the time command to time the process
+--parallel to run a number of threads
+the -p is an option for time and the -g is an option for sort
+run that on the random file of 4 million bytes
+
+Run:
+For 1 thread:
+time -p sort -g --parallel=1 random.txt > /dev/null
+
+real 8.40
+user 8.34
+sys 0.03
+
+For 2 threads:
+time -p sort -g --parallel=2 random.txt > /dev/null
+
+real 4.90
+user 9.16
+sys 0.02
+
+For 4 threads:
+time -p sort -g --parallel=4 random.txt > /dev/null
+
+real 3.16
+user 10.04
+sys 0.04
+
+For 8 threads:
+time -p sort -g --parallel=8 random.txt > /dev/null
+
+real 2.06
+user 10.54
+sys 0.05
+
+The user+sys time can be more than the real time because we are running
+mutliple threads on the program
