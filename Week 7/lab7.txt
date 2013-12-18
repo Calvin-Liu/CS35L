@@ -1,0 +1,77 @@
+1)What you have to do:
+-Read in a character
+-Use putchar to output it to the screen
+-This should be similar to project 5 where you read in characters and output themto the screen
+Problems: debugging errors, not a big deal
+
+2)What you have to do:
+-Read in byte by byte
+-Write out byte by byte
+-You don't need to know the size of the buffer
+-You are just going to read 1 byte, write 1 byte
+-You just need a buffer of size 1 if youre going to read over it and write it
+again
+
+3)
+words is the dictionary file from lab2
+
+strace -o strace_output ./catb < words
+-strace prints out all of the system calls when redirecting the file into our
+program
+-for catb it printed all the words in the file
+-then it made a file with all the system calls in it called strace_output
+-load it in the buffer and then write it
+
+strace -o strace_output ./catu < words
+-does the same thing as the catb but it takes longer
+-made the same file
+-takes longer because you're reading byte by byte for the system call without
+the buffer. Read and write, read and write, again and again
+-has to keep switching from back and forth
+
+4)
+./catb < words displays all of the words in the file
+time ./catb < words
+
+real	0m3.374s
+user	0m0.242s
+sys	0m0.909s
+
+Overhead. Only calls read once and stores it. The number of system calls is
+significantly less. It's not performing 2 system calls per character. You can
+just read off from the disk into the buffer and don't have to do another system call.
+putchar will write the whole buffer once it is full
+
+./catu < words displays all of the words in the file
+time ./catu < words
+
+real	0m6.694s
+user	0m0.232s
+sys	0m6.438s
+
+This call is almost twice as long as the catb which makes sense due to the
+amount of time I had to wait for the catb. This is because it has to keep
+switching system calls back and forth instead of loading it to the buffer and
+then writing. 
+-The time is less than the actual time is because we are reading from a disk
+and the processor is not really doing a lot. The real time may not be equal to
+the user + sys time.
+
+./catb < words > output
+-just puts it into a file
+
+./catu < words > outputu
+-just puts it into a file
+
+time ./catb < words > output
+
+real	0m0.224s
+user	0m0.152s
+sys	0m0.005s
+
+time ./catu < words > outputu
+
+real	0m5.084s
+user	0m0.254s
+sys	0m4.723s
+

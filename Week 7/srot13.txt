@@ -1,0 +1,102 @@
+Standard input with srot13
+--------------------------
+time printf
+'\0Gur\n\0Dhvpx\n\0Oebja\n\0sbk\n\twhzcf\n\tbire\n\tgur\n\tynml\n\tqbt.' |
+./srot13 | od -c
+
+time for srot13:
+real	0m0.003s
+user	0m0.002s
+sys	0m0.000s
+
+Standard input with srot13u
+--------------------------
+time printf
+'\0Gur\n\0Dhvpx\n\0Oebja\n\0sbk\n\twhzcf\n\tbire\n\tgur\n\tynml\n\tqbt.' |
+./srot13u | od -c
+outputs Number of comparisons: 17 
+time for srot13u:
+real	0m0.002s
+user	0m0.002s
+sys	0m0.001s
+
+Standard input with a large file with srot13
+--------------------------
+time cat /usr/local/cs/jdk*/jre/lib/rt.jar | ./srot13 | od -c
+
+time for srot13:
+real	1m5.479s
+user	0m58.448s
+sys	0m8.148s
+
+Standard input with a large file with srot13u
+--------------------------
+time cat /usr/local/cs/jdk*/jre/lib/rt.jar | ./srotu13 | od -c
+Number of comparisons: 9812721
+time for srot13u:
+real	1m18.798s
+user	0m59.289s
+sys	0m40.808s
+
+Standard input with a mutating file with srot13
+--------------------------
+time cat /proc/self/maps | ./srot13 | od -c
+
+time for srot13:
+real	0m0.002s
+user	0m0.000s
+sys	0m0.002s
+
+Standard input with a mutating file with srot13u
+--------------------------
+time cat /proc/self/maps | ./srot13u | od -c
+Number of comparisons: 46
+time for srot13u:
+real	0m0.010s
+user	0m0.004s
+sys	0m0.004s
+
+Regular large file with srot13
+--------------------------
+time ./srot13 < words (words is the dictionary from lab2)
+
+time for srot13: 
+real	0m2.025s
+user	0m1.187s
+sys	0m0.583s
+
+Regular large file with srot13u
+--------------------------
+time ./srot13u < words (words is the dictionary from lab2)
+Number of comparisons: 6199655 
+real	0m6.360s
+user	0m1.018s
+sys	0m5.325s
+
+Mutating file with srot13:
+--------------------------
+time ./srot13 < /proc/self/maps | od -c
+real	0m0.004s
+user	0m0.003s
+sys	0m0.002s
+
+Mutating file with srot13u
+--------------------------
+time ./srot13u < /proc/self/maps | od -c
+Number of comparisons: 39 
+real	0m0.005s
+user	0m0.003s
+sys	0m0.003s
+
+Small files work as well
+As you can see, the unbuffered takes longer with the read and write command
+because it uses system calls which take time to switch users and read each
+character 1 byte at a time.
+
+/usr/local/cs/jdk*/jre/lib/rt.jar - 570368 lines
+words - 479829 lines
+printf - 1 line
+
+The number of lines compared to the number of comparisons made seems to be
+around (2/3)comparisons = the number of lines in the file
+ 
