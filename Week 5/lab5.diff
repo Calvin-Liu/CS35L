@@ -1,0 +1,16 @@
+2013-11-1  Calvin Liu  <calvinl@lnxsrv02.seas.ucla.edu>
+
+	*Changed the implementation of the timespec_cmp to reduce the bit wise overflow issue
+
+--- timespec.h	2013-11-01 21:09:14.727829000 -0700
++++ lib/timespec.h	2013-11-01 21:11:28.858740000 -0700
+@@ -46,6 +46,9 @@
+ timespec_cmp (struct timespec a, struct timespec b)
+ {
+   int diff = a.tv_sec - b.tv_sec;
++  if( (a.tv_sec < 0 && b.tv_sec > 0 && diff > 0) ||
++	(a.tv_sec > 0 && b.tv_sec < 0 && diff < 0 ) )
++	diff = a.tv_sec;
+   return diff ? diff : a.tv_nsec - b.tv_nsec;
+ }
+ 

@@ -1,0 +1,66 @@
+1)wget the coreutils zip package
+2)go into the folder 
+3)./configure CFLAGS="-g"
+4)then you want to compile the file by hitting make
+5)get the patch online
+6)patch -p0 < patch to apply the patch of the link and rebuild it
+7)I checked to reproduce the bug by going in src and then doing checking the
+./ls
+
+8)
+
+$ tmp=$(mktemp -d)
+$ cd $tmp
+$ touch -d '1918-11-11 11:00 GMT' wwi-armistice
+$ touch now
+$ sleep 1
+$ touch now1
+$ TZ=UTC0 ~/Desktop/CS35L/Week5/coreutils-with-bug/src/ls -lt --full-time
+wwi-armistice now now1
+-rw-r--r-- 1 eggert csfac 0 1918-11-11 11:00:00.000000000 +0000 wwi-armistice
+-rw-r--r-- 1 eggert csfac 0 2013-04-29 16:42:48.358233532 +0000 now1
+-rw-r--r-- 1 eggert csfac 0 2013-04-29 16:42:47.355197103 +0000 now
+$ cd
+$ rm -fr $tmp
+
+Note -lt sorts it by time so the first file should be at the bottom of the list
+
+If you run the system then you will see the right version of the ls program
+appear
+
+9)$ gdb --args ./ls –lt /tmp/wwi-armistice /tmp/now tmp/now
+
+Need to look at the function called sort_files
+Put a breakpoint at this point and run it with arguments 
+Pay attention to qsort
+Follow the functions down until you hit the most basic implementation of the
+function which is the timespec_cmp.
+There are multiple functions that create a tree like path until you hit the
+most basic.
+
+Q1) Building the file as is without the patch created an error where the make
+did not work and produced an error. The make did not work because the futimens
+function has been changed to coreutils_futimens because a header line included
+the defition for futimens already 
+
+Go into the timespec.h file in lib and go to the timespec_cmp function, you
+will notice that the subtraction creates an overflow with the 64bit data which
+overflows from a huge postitive to a huge negative number. To change that you
+would fiddle around with a comparison function instead to obtain the return
+values of -1,1, or 0. Using a subtraction or even addition could lead to an
+overlow in byte representation. 
+To test the implementation:
+
+Create a diff file that is also your log file. The diff file should include
+the implementation to the timespec.h file. 
+
+TZ=UTC0 ~/Desktop/CS35L/Week5/coreutils-with-bug/src/ls -lt --full-time
+wwi-armistice now now1
+To test with the following other commands given above.
+
+Seasnet does not properly handle the case. This is because it is switching
+from a 64bit machine to a 32 bit machine and 32 bits are getting truncated
+meaning the sign bit is lost. Since 1918 is before the epoch time, it is
+stored as a negative number but when truncated it is a positive number. To fix
+the problem you had to make a change to the ls file.
+
