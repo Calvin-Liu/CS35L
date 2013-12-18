@@ -1,0 +1,39 @@
+Install Ubuntu using the disc
+Ctrl + Alt + t to open up the terminal window
+
+run the commands:
+dpkg --get-selections | grep openssh checks to see if you have the necessary
+ssh programs
+
+sudo apt-get update to update ubuntu
+
+sudo apt-get install openssh-server to install the openssh-server
+
+ssh-keygen to generate the public and private keys
+Made the key calvinl
+
+Create an account for the client on the server:
+sudo useradd -d /home/username -m colin
+sudo passwd colin
+made the password welcome555
+
+Create a .ssh directory for the new user
+cd /home/username
+sudo mkdir .ssh
+
+Change the permissions on the .ssh directory
+sudo chown -R username .ssh
+sudo chmod 700 .ssh
+
+used ifconfig and then checked the inet number
+Checked his IP address: 10.97.85.118
+Checked my IP address: 10.97.85.94
+ping 10.97.85.118
+
+ssh-copy-id -i calvin@10.97.85.118
+typed yes to set up the new connection
+which is the pass he made se555rt
+ssh -x calvin@10.97.85.118
+ssh-add and type in the key I made orginally which is calvinl
+typed in my password for one last time when trying to sign into my partner
+colins account and got in. Now everytime I sign in, I don't need the password

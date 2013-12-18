@@ -1,0 +1,78 @@
+Type in gpg --gen-key
+Use all the defaults they give you
+
+Comment: this is my comment
+email: calvinliu411@gmail.com
+name:calvin
+
+passsphrase: famous1
+Create enough entropy
+
+Key and passphrase assigned
+
+gpg --armor --output hw-pubkey.asc --export 'calvin'
+
+sudo apt-get update
+sudo apt-get install vim
+vim log.txt
+tar -cf hw.tar hw-pubkey.asc log.txt hw.txt
+gzip hw.tar
+
+gpg --armor --output hw.tar.gz.sig --detach-sign hw.tar.gz
+scp hw.tar.gz
+calvinl@lnxsrv02.seas.ucla.edu:/u/cs/ugrad/calvinl/Desktop/CS35L/Week6/hwcommands
+typed in password and scp it over
+then you have to import the keys gpg --import to import the public key
+
+gpg --armor --output hw.tar.gz.sig --detach-sign hw.tar.gz 
+
+Problem that occurred if you were to tamper with the file:
+gpg: Signature made Wed 06 Nov 2013 09:07:42 AM PST using RSA key ID BBB269A8
+gpg: BAD signature from "calvin (this is my comment) <calvinliu411@gmail.com>"
+
+Otherwise:
+
+s3051-198:Desktop icecool5280$ gunzip <hw.tar.gz | tar xf -
+s3051-198:Desktop icecool5280$ mkdir -m go-rwx .gnupg
+s3051-198:Desktop icecool5280$ gpg --homedir .gnupg --import hw-pubkey.asc
+gpg: keyring `.gnupg/secring.gpg' created
+gpg: keyring `.gnupg/pubring.gpg' created
+gpg: .gnupg/trustdb.gpg: trustdb created
+gpg: key 7387E0C4: public key "Calvin (Last run hopefully) <CalvinLiu411@gmail.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+s3051-198:Desktop icecool5280$ gpg --verify hw.tar.gz.sig hw.tar.gz
+gpg: Signature made Fri Nov  8 22:00:25 2013 EST using RSA key ID 7387E0C4
+gpg: Good signature from "Calvin (Last run hopefully) <CalvinLiu411@gmail.com>"
+s3051-198:Desktop icecool5280$ awk '200 < length' log.txt hw.txt
+
+Q1) If the person was observing the bytes it would stil be secure because if
+someone was trying sniff the line, the message would still be encrypted from
+the session key. The sender would send the file and the receiver would encrypt
+it with his public key and decrypt it with their private key. 
+
+If the person tapped our keyboard, the message would not be encypted because
+they would have figured out our password and passphrases for our keys and
+singatures. To prevent this, they would have to make sure no one is tapping
+our keyboard and that no one is tracking what we are doing and the codes we
+use to decrypt and encrypt things.
+
+If someone was using a USB to boot the system then the message would not be
+safe because they have control the of the system and all the keys, files
+and signatures. SInce the recipient encrypted the file and decrypts them,
+someone with the USB drive could get the information. In order to protect it,
+you would have to password protect the USB itself or make sure everything on
+the USB is protected, even the files from being tampered with.
+
+Q2) the gpg --verify command doesn't really verify that we created the tar
+because that command only checks to see if the file was tampered with 
+which then compares the original message 
+digest after. It only compares the signture with the public key.
+To go about fixing this problem, you have to check the creator
+of the file through a third party company that approves the digital
+signatures and has a file of them. They will be able to tell who really
+created the files given that you give them your keys and verification. Another
+possible way to show that the file is creating the signature with your private
+key but that would defeat the purpose of having your private key secret. This
+will protect it more than a public key because someone else could create a
+signature with another public key since all public keys are public.  
