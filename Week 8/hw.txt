@@ -1,0 +1,47 @@
+1 Most Threatening
+5 Least Threatening
+
+
+1)SSH CRC32 attack detection code contains remote integer overflow
+	This is the most harmful malicious attack that could occur because
+with root privliges you can run anything and exploit anything without any
+restrictions. Some code might not be able to be run because it needs root
+permission. But with root permission already, you are already the super user
+and can do anything on the computer.
+
+2)Microsoft Internet Explorer 8 CGenericElement object use-after-free
+vulnerability
+	This would be the next threatening because many people use internet
+explorer so it is an attack for many users. As opposed to the IBM one which
+not a lot of people use IBM Notes, IE is a more popular program and widespread
+since many people just click on websites without thinking about exploits or
+viruses. Based on this, an attacker could execute malicious code or craft a
+malicious website that exploits the user. This problem though is not that bad
+since only version 8 is affected and a person could just update their internet
+explorer in order to fix the issue. This is the only reason why IE has a
+chance to be less mallicious than IBM Notes
+
+3)IBM Notes runs arbitrary JAVA and Javascript in emails
+	This is the most threatening becuase being able to run any kind of
+arbitrary code via email is a serious issue. This means that if someone is
+under attack and the attacker is able to execute arbitrary code, they will be
+able to open a shell that has admin privleges and can do anything from wiping
+the hard drive to implanting a malicious attack.
+
+4)Linux kernel perf_swevent_enabled array out-of-bound access privilege
+escalation vulnerability
+	This could be a problem since a user that you thought you could trust
+or someone working under you gets the permission or removing files or doing
+something harmful to the system. This is not a very serious case because the
+person would have to be a trusted individual first or all and there updates
+you can install to resolve the issue. But if an individual is able to get into
+the system and change the permission settings, things can really go wrong by
+setting the user as root.
+
+5)Serva32 2.1.0 TFTPD service buffer overflow vulnerability
+	This is type of problem is not that threatening since it only causes
+an application to crash and something that crashes can always be rebooted in
+which the attacker would need to crash it again. The main reason why this
+problem is troublesome and of importance and might be ranked higher than the
+linux kernel problem is because there seems to be no
+solutions or fixes to this problem. 
